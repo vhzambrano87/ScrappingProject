@@ -1,6 +1,6 @@
 ﻿namespace ScrappingProject
 {
-    partial class Form1
+    partial class frmScrapping
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -166,7 +166,7 @@
             this.btnScrappingHtml.UseVisualStyleBackColor = true;
             this.btnScrappingHtml.Click += new System.EventHandler(this.btnScrappingHtml_Click);
             // 
-            // Form1
+            // frmScrapping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -185,8 +185,8 @@
             this.Controls.Add(this.btnScrapping);
             this.Controls.Add(this.txtURL);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmScrapping";
+            this.Text = "Web Scrapping";
             this.ResumeLayout(false);
             this.PerformLayout();
 
