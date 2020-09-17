@@ -7,9 +7,9 @@ using OpenQA.Selenium.Chrome;
 
 namespace ScrappingProject
 {
-    public partial class Form1 : Form
+    public partial class frmScrapping : Form
     {
-        public Form1()
+        public frmScrapping()
         {
             InitializeComponent();
 
