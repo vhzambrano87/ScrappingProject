@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Web;
 using System.Windows.Forms;
-using HtmlAgilityPack;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -77,62 +75,18 @@ namespace ScrappingProject
             txtPrecioOferta.Text = string.Empty;
             txtPrecioOfertaTarjeta.Text = string.Empty;
 
+            StoreScrapper storeScrapper = new StoreScrapper();
 
-            var web = new HtmlWeb();
-            var doc = web.Load(txtURL.Text);
+            var storeName = rdbFalabella.Checked ? "Falabella" : "Ripley";
 
+            var productExtractResult = storeScrapper.ExtractProductData(txtURL.Text, storeName);
 
-            if (rdbFalabella.Checked)
+            if (productExtractResult != null)
             {
-                var nodes = doc.DocumentNode.SelectNodes($"//div[contains(@class,'product-name')]");
-                txtNombre.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-
-                nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'price-0')]");
-                if (nodes != null && nodes.Count > 0)
-                {
-                    txtPrecio.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-                }
-
-                nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'price-1')]");
-                if (nodes != null && nodes.Count > 0)
-                {
-                    txtPrecioOferta.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-                }
-
-                nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'price-2')]");
-                if (nodes != null && nodes.Count > 0)
-                {
-                    txtPrecioOfertaTarjeta.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-                }
-            }
-            else 
-            {
-                var nodes = doc.DocumentNode.SelectNodes($"//section[contains(@class,'product-header')]/h1");
-                txtNombre.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-
-                nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'product-normal-price')]/span[contains(@class,'product-price__line-thru')]");
-                if (nodes != null && nodes.Count > 0)
-                {
-                    txtPrecio.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-                }
-
-                nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'product-internet-price-not-best')]/span[@class='product-price']");
-                if (nodes != null && nodes.Count > 0)
-                {
-                    txtPrecioOferta.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-                }
-                else
-                {
-                    nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'product-internet-price')]/span[@class='product-price']");
-                    txtPrecioOferta.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-                }
-
-                nodes = doc.DocumentNode.SelectNodes($"//li[@class='product-ripley-price']/span[@class='product-price']");
-                if (nodes != null && nodes.Count > 0)
-                {
-                    txtPrecioOfertaTarjeta.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-                }
-
+                txtNombre.Text = productExtractResult.Name;
+                txtPrecio.Text = productExtractResult.Price;
+                txtPrecioOferta.Text = productExtractResult.DiscountPrice;
+                txtPrecioOfertaTarjeta.Text = productExtractResult.DiscountPriceWithCard;
             }
             
         }

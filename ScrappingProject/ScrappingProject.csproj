@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StoreScrapper.cs" />
     <Compile Include="frmScrapping.cs">
       <SubType>Form</SubType>
     </Compile>
