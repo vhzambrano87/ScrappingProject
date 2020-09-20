@@ -87,12 +87,6 @@ namespace ScrappingProject
                 var nodes = doc.DocumentNode.SelectNodes($"//div[contains(@class,'product-name')]");
                 txtNombre.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
 
-                nodes = doc.DocumentNode.SelectNodes($"//span[contains(@class,'jsx-3408573263')]");
-                if (nodes != null && nodes.Count > 0)
-                {
-                    txtSKU.Text = HttpUtility.HtmlDecode(nodes[0].InnerText).Replace("Código: ", string.Empty);
-                }
-
                 nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'price-0')]");
                 if (nodes != null && nodes.Count > 0)
                 {
@@ -115,12 +109,6 @@ namespace ScrappingProject
             {
                 var nodes = doc.DocumentNode.SelectNodes($"//section[contains(@class,'product-header')]/h1");
                 txtNombre.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-
-                nodes = doc.DocumentNode.SelectNodes($"//section[contains(@class,'product-header')]/small/span[@class='sku']");
-                if (nodes != null && nodes.Count > 0)
-                {
-                    txtSKU.Text = HttpUtility.HtmlDecode(nodes[0].InnerText);
-                }
 
                 nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'product-normal-price')]/span[contains(@class,'product-price__line-thru')]");
                 if (nodes != null && nodes.Count > 0)
