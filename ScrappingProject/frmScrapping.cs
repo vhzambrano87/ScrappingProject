@@ -28,6 +28,13 @@ namespace ScrappingProject
                 {
                     txtNombre.Text = driver.FindElement(By.CssSelector("div[class*=product-name]")).Text;
 
+                    //
+                    if (ScrappingHelpers.ContainsClass(driver, "jsx-3408573263"))
+                    {
+                        txtSKU.Text = driver.FindElement(By.XPath("//span[class='jsx-3408573263']")).Text;
+                    }
+
+
                     if (ScrappingHelpers.ContainsClass(driver, "price-0"))
                     {
                         txtPrecio.Text = driver.FindElement(By.CssSelector("li[class*=price-0]")).Text;
@@ -83,6 +90,7 @@ namespace ScrappingProject
 
             if (productExtractResult != null)
             {
+                txtSKU.Text = productExtractResult.SKU;
                 txtNombre.Text = productExtractResult.Name;
                 txtPrecio.Text = productExtractResult.Price;
                 txtPrecioOferta.Text = productExtractResult.DiscountPrice;

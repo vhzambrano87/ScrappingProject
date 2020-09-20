@@ -42,6 +42,8 @@
             this.rdbFalabella = new System.Windows.Forms.RadioButton();
             this.rdbRipley = new System.Windows.Forms.RadioButton();
             this.btnScrappingHtml = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSKU = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(82, 90);
+            this.label2.Location = new System.Drawing.Point(82, 121);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 3;
@@ -81,7 +83,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(132, 87);
+            this.txtNombre.Location = new System.Drawing.Point(132, 118);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(167, 20);
             this.txtNombre.TabIndex = 4;
@@ -89,7 +91,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 131);
+            this.label3.Location = new System.Drawing.Point(89, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 5;
@@ -97,7 +99,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(132, 128);
+            this.txtPrecio.Location = new System.Drawing.Point(132, 159);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(167, 20);
             this.txtPrecio.TabIndex = 6;
@@ -105,7 +107,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 169);
+            this.label4.Location = new System.Drawing.Point(57, 200);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 7;
@@ -113,7 +115,7 @@
             // 
             // txtPrecioOferta
             // 
-            this.txtPrecioOferta.Location = new System.Drawing.Point(132, 166);
+            this.txtPrecioOferta.Location = new System.Drawing.Point(132, 197);
             this.txtPrecioOferta.Name = "txtPrecioOferta";
             this.txtPrecioOferta.Size = new System.Drawing.Size(167, 20);
             this.txtPrecioOferta.TabIndex = 8;
@@ -121,7 +123,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 207);
+            this.label5.Location = new System.Drawing.Point(21, 238);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 13);
             this.label5.TabIndex = 9;
@@ -129,7 +131,7 @@
             // 
             // txtPrecioOfertaTarjeta
             // 
-            this.txtPrecioOfertaTarjeta.Location = new System.Drawing.Point(132, 204);
+            this.txtPrecioOfertaTarjeta.Location = new System.Drawing.Point(132, 235);
             this.txtPrecioOfertaTarjeta.Name = "txtPrecioOfertaTarjeta";
             this.txtPrecioOfertaTarjeta.Size = new System.Drawing.Size(167, 20);
             this.txtPrecioOfertaTarjeta.TabIndex = 10;
@@ -166,11 +168,29 @@
             this.btnScrappingHtml.UseVisualStyleBackColor = true;
             this.btnScrappingHtml.Click += new System.EventHandler(this.btnScrappingHtml_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(97, 85);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "SKU";
+            // 
+            // txtSKU
+            // 
+            this.txtSKU.Location = new System.Drawing.Point(132, 82);
+            this.txtSKU.Name = "txtSKU";
+            this.txtSKU.Size = new System.Drawing.Size(167, 20);
+            this.txtSKU.TabIndex = 15;
+            // 
             // frmScrapping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 304);
+            this.Controls.Add(this.txtSKU);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnScrappingHtml);
             this.Controls.Add(this.rdbRipley);
             this.Controls.Add(this.rdbFalabella);
@@ -208,6 +228,8 @@
         private System.Windows.Forms.RadioButton rdbFalabella;
         private System.Windows.Forms.RadioButton rdbRipley;
         private System.Windows.Forms.Button btnScrappingHtml;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSKU;
     }
 }
 

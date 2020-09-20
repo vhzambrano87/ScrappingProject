@@ -16,6 +16,12 @@ namespace ScrappingProject
                 var nodes = doc.DocumentNode.SelectNodes($"//div[contains(@class,'product-name')]");
                 result.Name = HttpUtility.HtmlDecode(nodes[0].InnerText);
 
+                nodes = doc.DocumentNode.SelectNodes($"//span[@class='jsx-3408573263']");
+                if (nodes != null && nodes.Count > 0)
+                {
+                    result.SKU = HttpUtility.HtmlDecode(nodes[0].InnerText).Replace("Código: ","");
+                }
+
                 nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'price-0')]");
                 if (nodes != null && nodes.Count > 0)
                 {
@@ -38,6 +44,12 @@ namespace ScrappingProject
             {
                 var nodes = doc.DocumentNode.SelectNodes($"//section[contains(@class,'product-header')]/h1");
                 result.Name = HttpUtility.HtmlDecode(nodes[0].InnerText);
+
+                nodes = doc.DocumentNode.SelectNodes($"//span[@class='sku']");
+                if (nodes != null && nodes.Count > 0)
+                {
+                    result.SKU = HttpUtility.HtmlDecode(nodes[0].InnerText);
+                }
 
                 nodes = doc.DocumentNode.SelectNodes($"//li[contains(@class,'product-normal-price')]/span[contains(@class,'product-price__line-thru')]");
                 if (nodes != null && nodes.Count > 0)
@@ -73,6 +85,7 @@ namespace ScrappingProject
 
     public class ProductExtractModel
     {
+        public string SKU { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
         public string DiscountPrice { get; set; }
