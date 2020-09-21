@@ -5,6 +5,8 @@ namespace ScrappingProject
 {
     public class StoreScrapper
     {
+        public const string hostFalabella = "www.falabella.com.pe";
+        public const string hostRipley = "simple.ripley.com.pe";
         public ProductExtractModel ExtractProductData(string url, string storeName) 
         {
             ProductExtractModel result = new ProductExtractModel();
